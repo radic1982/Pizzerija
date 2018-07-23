@@ -3,5 +3,6 @@ ___
 **Aplikacija za Piceriju**
 ___
 Sadržaj:
-1. Spring
-2. Angular
+1. Spring(serverski deo)
+2. Angular(klijentski deo)
+3. SQL
