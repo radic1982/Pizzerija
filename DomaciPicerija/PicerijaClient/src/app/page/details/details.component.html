@@ -1,0 +1,47 @@
+<div *ngIf="menu" class="row">
+        <div class="col-md-12">
+            <h1>{{menu.name}}</h1>
+            <br/>
+            <p>{{menu.price}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+                <form (ngSubmit)="comment()" class="form">
+                        Korisnik:
+                        <input [(ngModel)]="newComment.authorName" class="form-control" type="text" name="username" /> 
+                        Komentar:
+                        <input [(ngModel)]="newComment.content" class="form-control" type="text" name="firstName" />
+                        <br/>
+                        <input class="btn btn-primary" type="submit" value="Ostavi komentar" />
+            
+                    </form>
+            
+        </div>
+    </div>
+
+    <div class="row">
+
+            <div class="col-md-8">
+                <h4>Komentari</h4>
+                <table *ngIf="comment" class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Korisnik</th>
+                            <th>Komentar</th>
+                            <th>Komentariši</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of comment let one = index">
+                            <td>{{item.authorName}}</td>
+                            <td>{{item.content}}, {{}}</td>
+
+                        <!--    <td><b *ngIf="item.reference_comment">&ensp;</b>{{item.details}}</td> -->
+                            <td><button  (click)="addComment(item.id)" class="btn btn-default">Komentariši</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+    
